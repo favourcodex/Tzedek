@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tzedek - Join Our Community</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .toggle-underline { position: relative; display: inline-block; }
+        .toggle-underline::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -2px; left: 0; background-color: #4CAF50; transition: width 0.3s ease; }
+        .toggle-underline.active::after { width: 100%; }
+        .social-btn { transition: all 0.3s ease; }
+        .social-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); }
+        .feature-item::before { content: "•"; color: #4CAF50; font-weight: bold; display: inline-block; width: 1em; margin-left: -1em; }
+        .form-container { transition: all 0.3s ease; }
+        .hidden-form { opacity: 0; height: 0; overflow: hidden; }
+        .visible-form { opacity: 1; height: auto; }
+        @media (min-width: 1024px) { .flex.flex-col.lg\:flex-row.bg-white.rounded-xl.shadow-lg.overflow-hidden > .w-full { width: 100% !important; max-width: 100% !important; flex: 1 1 0%; } }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-logo">Tzedek</div>
+        <div class="preloader-subtitle">Justice • Equality • Community</div>
+        <div class="preloader-progress">
+            <div id="progress-bar" class="preloader-progress-bar"></div>
+        </div>
+    </div>
+
+    <div class="w-full min-h-screen flex flex-col lg:flex-row bg-white rounded-none shadow-none overflow-hidden px-0 py-0">
+        <div class="flex flex-col lg:flex-row bg-white shadow-lg overflow-hidden">
+            <!-- Left Side - Form -->
+            <div class="w-full lg:w-1/2 p-8 md:p-12">
+                <div class="flex justify-between items-center mb-8">
+                    <h1 id="welcome-text" class="text-3xl font-bold text-gray-800">Welcome to Tzedek</h1>
+                    <div class="flex space-x-1">
+                        <button id="signup-toggle" class="toggle-underline active text-[#4CAF50] font-medium">Sign up</button>
+                        <span class="text-gray-400">|</span>
+                        <button id="signin-toggle" class="toggle-underline text-gray-500 font-medium">Sign in</button>
+                    </div>
+                </div>
+
+                <!-- Sign Up Form -->
+                <form id="signup-form" class="form-container visible-form">
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="first-name" class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                                <input type="text" id="first-name" class="w-full px-4 py-2 border outline-none border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4CAF50] focus:border-[#4CAF50]" required>
+                            </div>
+                            <div>
+                                <label for="last-name" class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                                <input type="text" id="last-name" class="w-full px-4 py-2 border outline-none border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4CAF50] focus:border-[#4CAF50]" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="signup-email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" id="signup-email" class="w-full px-4 py-2 border outline-none border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4CAF50] focus:border-[#4CAF50]" required>
+                        </div>
+                        <div>
+                            <label for="signup-password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                            <input type="password" id="signup-password" class="w-full px-4 py-2 border outline-none border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4CAF50] focus:border-[#4CAF50]" required>
+                        </div>
+                        <div>
+                            <label for="confirm-password" class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+                            <input type="password" id="confirm-password" class="w-full px-4 py-2 border outline-none border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4CAF50] focus:border-[#4CAF50]" required>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="terms" class="h-4 w-4 text-[#4CAF50] focus:ring-[#4CAF50] border-gray-300 rounded" required>
+                            <label for="terms" class="ml-2 block text-sm text-gray-700">
+                                I agree to the <a href="company-policy.html" class="text-[#4CAF50] hover:underline">Terms of Service</a> and <a href="company-policy.html" class="text-[#4CAF50] hover:underline">Privacy Policy</a>
+                            </label>
+                        </div>
+                        <button id="signup-submit" type="submit" class="w-full bg-[#4CAF50] text-white py-2 px-4 rounded-lg hover:bg-[#3e8e41] focus:outline-none focus:ring-2 focus:ring-[#4CAF50] focus:ring-offset-2 transition duration-150">
+                            Create Account
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Sign In Form -->
+                <form id="signin-form" class="form-container hidden-form">
+                    <div class="space-y-4">
+                        <div>
+                            <label for="signin-email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" id="signin-email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4CAF50] focus:border-[#4CAF50]" required>
+                        </div>
+                        <div>
+                            <label for="signin-password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                            <input type="password" id="signin-password" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4CAF50] focus:border-[#4CAF50]" required>   
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <input type="checkbox" id="remember-me" class="h-4 w-4 text-[#4CAF50] focus:ring-[#4CAF50] border-gray-300 rounded">
+                                <label for="remember-me" class="ml-2 block text-sm text-gray-700">Remember me</label>
+                            </div>
+                            <a href="#" class="text-sm text-[#4CAF50] hover:underline">Forgot password?</a>
+                        </div>
+                        <button id="signin-submit" type="submit" class="w-full bg-[#4CAF50] text-white py-2 px-4 rounded-lg hover:bg-[#3e8e41] focus:outline-none focus:ring-2 focus:ring-[#4CAF50] focus:ring-offset-2 transition duration-150">
+                            Sign In
+                        </button>
+                    </div>
+                </form>
+
+                <div class="relative my-6">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-gray-300"></div>
+                    </div>
+                    <div class="relative flex justify-center text-sm">
+                        <span class="px-2 bg-white text-gray-500">Or continue with</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <button class="social-btn flex items-center justify-center py-2 px-4 border border-gray-300 rounded-lg hover:bg-gray-50">
+                        <img src="data:image/png;base64,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" class="mr-2 h-5 background-transperent">
+                        <span class="text-sm font-medium text-gray-700">Google</span>
+                    </button>
+                    <button class="social-btn flex items-center justify-center py-2 px-4 border border-gray-300 rounded-lg hover:bg-gray-50">
+                        <i class="fab fa-facebook-f text-blue-600 mr-2"></i>
+                        <span class="text-sm font-medium text-gray-700">Facebook</span>
+                    </button>
+                    <button class="social-btn flex items-center justify-center py-2 px-4 border border-gray-300 rounded-lg hover:bg-gray-50">
+                        <i class="fab fa-apple text-gray-800 mr-2"></i>
+                        <span class="text-sm font-medium text-gray-700">Apple</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-1/2 bg-[#4CAF50] p-8 md:p-12 flex flex-col">
+                <div class="mb-8">
+                    <div class="text-4xl font-bold text-white mb-2">Tzedek</div>
+                    <div class="text-sm text-white opacity-90">Justice • Equality • Community</div>
+                </div>
+                
+                <div class="mb-8">
+                    <h2 class="text-2xl font-semibold text-white mb-4">About Tzedek</h2>
+                    <p class="text-white opacity-90 mb-4">
+                        Tzedek is a revolutionary E-commerce platform that embodies the principles of justice, equality, and community. Our name, inspired by the Hebrew word for "justice" or "righteousness," reflects our commitment to creating a fair, seamless and inclusive online marketplace.
+                    </p>
+                    <p class="text-white opacity-90">
+                        We have incorporated a robust network plan for all stores owners, so as to enjoy extra passive income.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Features:</h3>
+                    <ul class="space-y-2 text-white opacity-90">
+                        <li class="feature-item pl-4">Access to link</li>
+                        <li class="feature-item pl-4">Can share link</li>
+                        <li class="feature-item pl-4">Can see potential earnings for those who have clicked link</li>
+                        <li class="feature-item pl-4">Free discount on any company direct product purchased</li>
+                        <li class="feature-item pl-4">Can see timelines business adverts</li>
+                    </ul>
+                </div>
+                
+                <div class="mt-auto pt-8">
+                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                        <h4 class="font-medium text-[#4CAF50] mb-2">Why join Tzedek?</h4>
+                        <p class="text-sm text-gray-600">
+                            Become part of a community that values fairness and mutual success. Our unique platform offers store owners unprecedented opportunities for growth and passive income.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/register.js"></script>
+    <script src="../js/ecommerce.js"></script>
+    <script src="../js/script.js"></script>
+    <script>
+        // Toggle forms
+        const signupToggle = document.getElementById('signup-toggle');
+        const signinToggle = document.getElementById('signin-toggle');
+        const signupForm = document.getElementById('signup-form');
+        const signinForm = document.getElementById('signin-form');
+        if (signupToggle && signinToggle) {
+            signupToggle.addEventListener('click', () => {
+                signupToggle.classList.add('active');
+                signinToggle.classList.remove('active');
+                signupForm.classList.remove('hidden-form');
+                signupForm.classList.add('visible-form');
+                signinForm.classList.add('hidden-form');
+            });
+            signinToggle.addEventListener('click', () => {
+                signinToggle.classList.add('active');
+                signupToggle.classList.remove('active');
+                signinForm.classList.remove('hidden-form');
+                signinForm.classList.add('visible-form');
+                signupForm.classList.add('hidden-form');
+            });
+        }
+
+        // Hook up auth handlers if available
+        document.getElementById('signup-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (window.tzedek && typeof window.tzedek.handleSignup === 'function') {
+                window.tzedek.handleSignup({
+                    firstName: document.getElementById('first-name').value.trim(),
+                    lastName: document.getElementById('last-name').value.trim(),
+                    email: document.getElementById('signup-email').value.trim(),
+                    password: document.getElementById('signup-password').value.trim(),
+                    confirmPassword: document.getElementById('confirm-password').value.trim(),
+                    termsAccepted: document.getElementById('terms').checked
+                });
+            }
+        });
+        document.getElementById('signin-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (window.tzedek && typeof window.tzedek.handleSignin === 'function') {
+                window.tzedek.handleSignin({
+                    email: document.getElementById('signin-email').value.trim(),
+                    password: document.getElementById('signin-password').value.trim(),
+                });
+            }
+        });
+    </script>
+</body>
+</html>

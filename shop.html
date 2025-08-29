@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop - Tzedek Marketplace</title>
+    <meta name="description" content="Shop at Tzedek Marketplace" />
+    <meta name="author" content="Tzedek" />
+
+    <meta property="og:title" content="Shop - Tzedek Marketplace" />
+    <meta property="og:description" content="Shop at Tzedek Marketplace" />
+    <meta property="og:type" content="website" />
+    
+    <link rel="stylesheet" href="../css/shop.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+  </head>
+  <body>
+    
+    <!-- Preloader -->
+    <!-- <div id="preloader" class="preloader">
+        <div class="preloader-logo">Tzedek</div>
+        <div class="preloader-subtitle">Justice • Equality • Community</div>
+        <div class="preloader-progress">
+            <div id="progress-bar" class="preloader-progress-bar"></div>
+        </div>
+    </div> -->
+
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="container">
+        <div class="navbar-content">
+          <div class="navbar-logo">
+            <a href="index.html" class="logo">Tzedek</a>
+          </div>
+          
+          <!-- Desktop Navigation -->
+          <nav class="navbar-links desktop-nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="shop.html" class="nav-link active">Shops</a>
+            <a href="products.html" class="nav-link">Products</a>
+            <!-- <a href="index.html#faq" class="nav-link"></a> -->
+            <a href="contact.html" class="nav-link">Contact</a>
+          </nav>
+    
+          <div class="navbar-auth desktop-nav">
+            <a href="register.html" class="nav-link">Sign Up</a>
+            <a href="register.html" class="btn-primary">Become a Seller</a>
+          </div>
+
+          <!-- Add this mobile nav markup just before the closing </div> of .navbar-content -->
+            <nav id="mobileNav" class="mobile-nav hidden">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="shop.html" class="nav-link">Shops</a>
+                <a href="products.html" class="nav-link">Products</a>
+                <!-- <a href="index.html#faq" class="nav-link">FAQ</a> -->
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="register.html" class="nav-link">Sign Up</a>
+                <a href="register.html" class="btn-primary">Become a Seller</a>
+            </nav>
+          
+          <!-- Mobile menu button -->
+          <div class="mobile-menu-button">
+            <button id="menuToggle" aria-label="Toggle menu">
+              <i class="fas fa-bars menu-icon"></i>
+              <i class="fas fa-times close-icon hidden"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Shop Hero -->
+      <section class="shop-hero">
+        <div class="container">
+          <h1 class="section-title">Browse Our Shop</h1>
+          <p class="section-intro">
+            Explore our collection of high-quality products from sellers around the world.
+          </p>
+          <div class="shop-search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" id="shopSearchInput" placeholder="Search for a Shops...">
+            <button type="button" id="shopSearchBtn">Search</button>
+          </div>
+      </section>
+
+      <!-- Shop Section -->
+      <section class="section">
+        <div class="container">
+          <div class="shop-filters">
+            <button class="filter-button active" data-category="">All Shops</button>
+            <button class="filter-button" data-category="Property">Property</button>
+            <button class="filter-button" data-category="Fashion">Fashion</button>
+            <button class="filter-button" data-category="Electronics">Electronics</button>
+            <button class="filter-button" data-category="Beauty">healthy & Beauty</button>
+          </div>
+          
+          <div class="shop-grid" id="shopGrid">
+            <!-- Shops will be rendered here -->
+                </div>
+            </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>Tzedek</h3>
+            <p>
+              A revolutionary E-commerce platform that embodies the principles of justice, 
+              equality, and community.
+            </p>
+            <div class="footer-social">
+              <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          
+          <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="index.html#about">About Us</a></li>
+              <li><a href="shop.html">Shop</a></li>
+              <li><a href="index.html#packages">Packages</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-column">
+            <h3>Support</h3>
+            <ul class="footer-links">
+              <li><a href="index.html#faq">FAQ</a></li>
+              <li><a href="privacy-policy.html">Privacy Policy</a></li>
+              <li><a href="terms-of-service.html">Terms of Service</a></li>
+              <li><a href="refund-policy.html">Refund Policy</a></li>
+              <li><a href="company-policy.html">Company Policy</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-column">
+            <h3>Contact Us</h3>
+            <ul class="footer-contact">
+              <li>Email: Tzedekgreen@gmail.com</li>
+              <li>Phone: +234 XXX XXX XXXX</li>
+              <li>Address: Lagos, Nigeria</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <p>&copy; <span id="currentYear"></span> Tzedek. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <button id="scrollToTop" class="scroll-top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="../js/ecommerce.js"></script>
+    <script>
+      // Load shops and make cards link to shop-details.html?slug=
+      document.addEventListener('DOMContentLoaded', () => {
+        fetch('/api/shops')
+          .then(r=>r.json())
+          .then(data => {
+            const grid = document.getElementById('shopGrid');
+            grid.innerHTML = (data.shops||data||[]).map(s => `
+              <a class="product-card animate-fade-in" href="shop-details.html?slug=${encodeURIComponent(s.slug)}">
+                <div class="product-image">
+                  <img src="${(s.logo)||'../img/shop-img-1.jpg'}" alt="${s.name}">
+                </div>
+                <div class="product-info">
+                  <h3 class="product-title">${s.name}</h3>
+                  <p class="product-description">${(s.description||'').slice(0,100)}</p>
+                </div>
+              </a>
+            `).join('');
+          }).catch(()=>{});
+      });
+    </script>
+    <script src="../js/script.js"></script>
+    <script src="../js/home.js"></script>
+  </body>
+</html>

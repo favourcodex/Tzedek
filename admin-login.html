@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Admin Login | Tzedek</title>
+	<link rel="stylesheet" href="../css/styles.css">
+	<link rel="stylesheet" href="../css/home.css">
+	<link rel="stylesheet" href="../css/admin-dashboard.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-50 min-h-screen">
+	<header class="navbar bg-white shadow-sm">
+		<div class="container">
+			<div class="navbar-content">
+				<div class="navbar-logo">
+					<a href="index.html" class="logo">Tzedek</a>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<section class="py-12">
+		<div class="container" style="max-width: 480px;">
+			<div class="bg-white rounded-lg shadow-md p-8">
+				<h1 class="text-2xl font-semibold mb-6 text-gray-800">Admin Sign In</h1>
+				<p id="admin-login-message" class="login-message" style="display:none;margin-bottom:12px;"></p>
+				<form id="admin-login-form">
+					<div class="mb-4">
+						<label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+						<input name="email" type="email" required class="w-full border border-gray-300 rounded-md px-4 py-3" placeholder="admin@example.com" />
+					</div>
+					<div class="mb-6">
+						<label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+						<input name="password" type="password" required class="w-full border border-gray-300 rounded-md px-4 py-3" placeholder="••••••••" />
+					</div>
+					<button type="submit" class="btn-primary w-full">Sign In</button>
+				</form>
+				<p class="text-sm text-gray-500 mt-6">You must use an account with the <strong>admin</strong> role.</p>
+			</div>
+		</div>
+	</section>
+
+	<script src="../js/admin-login.js"></script>
+</body>
+</html>

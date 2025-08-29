@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop name | Tzedek Marketplace </title>
+    <link rel="stylesheet" href="../css/shop-details.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Tailwind CSS -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Shop Header -->
+        <div class="shop-header">
+            <div class="shop-cover" id="shopCover"></div>
+            <div class="shop-info">
+                <div class="shop-logo-container">
+                    <img src="/img/gig-logistics-logo.png" alt="Shop Logo" class="shop-logo" id="shopLogo">
+                </div>
+                <div class="shop-details">
+                    <h1 class="shop-name" id="shopName">Shop</h1>
+                    <p class="shop-description" id="shopDescription"></p>
+                    <div class="social-icons" id="shopSocial"></div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Products Section -->
+        <div class="products-section">
+            <h2 class="section-title">Products</h2>
+            <div class="products-grid" id="shopProducts">
+            </div>
+                    </div>
+                </div>
+
+    <script src="../js/ecommerce.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const params = new URLSearchParams(location.search);
+        const slug = params.get('slug');
+        if (!slug) return;
+        fetch(`/api/shops?slug=${encodeURIComponent(slug)}`)
+          .then(r=>r.json())
+          .then(data => {
+            const shop = (data.shops||[])[0] || data;
+            if (!shop) return;
+            document.title = `${shop.name} | Tzedek Marketplace`;
+            document.getElementById('shopName').textContent = shop.name;
+            document.getElementById('shopDescription').textContent = shop.description || '';
+            if (shop.logo) document.getElementById('shopLogo').src = shop.logo;
+            if (shop.coverImage) document.getElementById('shopCover').style.backgroundImage = `url('${shop.coverImage}')`;
+            // Load products for this shop
+            return fetch(`/api/shops/${shop._id}/products`);
+          })
+          .then(r => r && r.json())
+          .then(res => {
+            const products = (res && (res.products||res)) || [];
+            const grid = document.getElementById('shopProducts');
+            grid.innerHTML = products.map(p => `
+                <div class="product-card">
+                <img src="${(p.images && p.images[0] && p.images[0].url) || 'https://via.placeholder.com/300x200'}" alt="${p.name}" class="product-image">
+                    <div class="product-info">
+                    <h3 class="product-title">${p.name}</h3>
+                    <p class="product-price">₦${(p.price||0).toLocaleString()}</p>
+                    <div class="product-actions" style="margin-top:8px;">
+                      <a class="btn-primary" href="product-details.html?id=${p._id}">View</a>
+                      <button class="btn-outline" data-product-id="${p._id}" data-qty="1">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            `).join('');
+            grid.addEventListener('click', (e)=>{
+              const btn = e.target.closest('button[data-product-id]');
+              if (!btn || !window.tzedek) return;
+              window.tzedek.addToCart({ productId: btn.dataset.productId, quantity: parseInt(btn.dataset.qty||'1') });
+            });
+          }).catch(()=>{});
+        });
+    </script>
+</body>
+</html>

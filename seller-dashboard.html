@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tzedek Marketplace - Seller Dashboard</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/seller-dashboard.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Tailwind CSS -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <!-- Optional Preloader -->
+    <!-- <div id="preloader" class="preloader">
+        <div class="preloader-logo">Tzedek</div>
+        <div class="preloader-subtitle">Justice • Equality • Community</div>
+        <div class="preloader-progress">
+            <div id="progress-bar" class="preloader-progress-bar"></div>
+        </div>
+    </div> -->
+
+    <div class="seller-dashboard">
+        <!-- Sidebar -->
+        <aside class="seller-sidebar" id="sellerSidebar">
+            <div class="seller-sidebar-header">
+                <h2>Seller Dashboard</h2>
+                <p id="shopName">Manage your shop</p>
+            </div>
+            <ul class="seller-nav" id="sellerNav">
+                <li class="seller-nav-item"><a href="#" class="seller-nav-link active" data-section="dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li class="seller-nav-item"><a href="#" class="seller-nav-link" data-section="products"><i class="fas fa-box"></i> Products</a></li>
+                <li class="seller-nav-item"><a href="#" class="seller-nav-link" data-section="analytics"><i class="fas fa-chart-line"></i> Analytics</a></li>
+                <li class="seller-nav-item"><a href="#" class="seller-nav-link" data-section="orders"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+                <li class="seller-nav-item"><a href="#" class="seller-nav-link" data-section="settings"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+        </aside>
+
+        <!-- Main -->
+        <main class="seller-main" id="sellerMain">
+            <header class="seller-header">
+                <h1 id="sectionTitle">Dashboard</h1>
+                <div class="seller-header-actions">
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Menu"><i class="fas fa-bars"></i></button>
+                    <button class="action-btn secondary" id="createShopBtn"><i class="fas fa-store"></i> Create/Manage Shop</button>
+                    <button class="action-btn primary" id="addProductBtn"><i class="fas fa-plus"></i> Add Product</button>
+            </div>
+            </header>
+
+            <!-- Dashboard Section -->
+            <section class="content-section" id="dashboardSection">
+                <div class="content-section-header">
+                    <h2 class="content-section-title"><i class="fas fa-chart-pie"></i> Overview</h2>
+                    <p class="content-section-subtitle">Key stats for your shop</p>
+                </div>
+                <div class="stats-grid" id="statsGrid">
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <span class="stat-card-title">Total Sales</span>
+                            <div class="stat-card-icon green"><i class="fas fa-naira-sign"></i></div>
+                        </div>
+                        <p class="stat-card-value" id="statTotalSales">₦0</p>
+                        <span class="stat-card-change" id="statSalesChange">0% vs last period</span>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <span class="stat-card-title">Orders</span>
+                            <div class="stat-card-icon blue"><i class="fas fa-receipt"></i></div>
+                        </div>
+                        <p class="stat-card-value" id="statOrders">0</p>
+                        <span class="stat-card-change" id="statOrdersChange">0% vs last period</span>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <span class="stat-card-title">Products</span>
+                            <div class="stat-card-icon purple"><i class="fas fa-box"></i></div>
+                        </div>
+                        <p class="stat-card-value" id="statProducts">0</p>
+                        <span class="stat-card-change" id="statProductsChange">0% vs last period</span>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <span class="stat-card-title">Conversion</span>
+                            <div class="stat-card-icon orange"><i class="fas fa-percent"></i></div>
+                        </div>
+                        <p class="stat-card-value" id="statConversion">0%</p>
+                        <span class="stat-card-change negative" id="statConversionChange">0% vs last period</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section" id="dashboardRecentOrders">
+                <div class="content-section-header">
+                    <h2 class="content-section-title"><i class="fas fa-clock"></i> Recent Orders</h2>
+                </div>
+                <div class="table-wrap">
+                    <table class="data-table" aria-label="Recent Orders">
+                        <thead>
+                            <tr>
+                                <th>Order #</th>
+                                <th>Date</th>
+                                <th>Customer</th>
+                                <th>Status</th>
+                                <th>Total</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="recentOrdersBody">
+                            <tr><td colspan="6" class="text-center">Loading...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Products Section -->
+            <section class="content-section hidden" id="productsSection">
+                <div class="content-section-header">
+                    <h2 class="content-section-title"><i class="fas fa-box"></i> Products</h2>
+                    <p class="content-section-subtitle">Manage your product catalog</p>
+                    </div>
+                <div class="products-actions" style="padding: 1rem 1.5rem; display:flex; gap:1rem; align-items:center;">
+                    <input id="productSearch" class="form-input" placeholder="Search products..." />
+                    <select id="productStatusFilter" class="form-select" style="max-width: 220px;">
+                        <option value="">All Statuses</option>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                        <option value="draft">Draft</option>
+                    </select>
+                    </div>
+                <div class="table-wrap">
+                    <table class="data-table" aria-label="Products">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th>Status</th>
+                                <th>Updated</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsTableBody">
+                            <tr><td colspan="6" class="text-center">Loading...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Orders Section -->
+            <section class="content-section hidden" id="ordersSection">
+                <div class="content-section-header">
+                    <h2 class="content-section-title"><i class="fas fa-shopping-cart"></i> Orders</h2>
+                    <p class="content-section-subtitle">Track and fulfill orders</p>
+                </div>
+                <div class="table-wrap">
+                    <table class="data-table" aria-label="Orders">
+                        <thead>
+                            <tr>
+                                <th>Order #</th>
+                                <th>Date</th>
+                                <th>Items</th>
+                                <th>Status</th>
+                                <th>Total</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="ordersTableBody">
+                            <tr><td colspan="6" class="text-center">Loading...</td></tr>
+                        </tbody>
+                    </table>
+                    </div>
+            </section>
+
+            <!-- Analytics Section -->
+            <section class="content-section hidden" id="analyticsSection">
+                <div class="content-section-header">
+                    <h2 class="content-section-title"><i class="fas fa-chart-line"></i> Analytics</h2>
+                    <p class="content-section-subtitle">Insights about your performance</p>
+                    </div>
+                <div class="analytics-grid">
+                    <div class="chart-container">
+                        <div class="chart-title">Sales (Last 30 days)</div>
+                        <div id="salesChart" style="height:280px; background:#f8fafc; border:1px dashed #e2e8f0; border-radius:8px;"></div>
+                </div>
+                    <div class="chart-container">
+                        <div class="chart-title">Top Products</div>
+                        <div id="topProducts" style="height:280px; background:#f8fafc; border:1px dashed #e2e8f0; border-radius:8px;"></div>
+            </div>
+        </div>
+    </section>
+
+            <!-- Settings Section -->
+            <section class="content-section hidden" id="settingsSection">
+                <div class="content-section-header">
+                    <h2 class="content-section-title"><i class="fas fa-cog"></i> Shop Settings</h2>
+                    <p class="content-section-subtitle">Update your shop information</p>
+                </div>
+                <form id="shopForm" style="padding:1.5rem;">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="shopNameInput">Shop Name</label>
+                            <input id="shopNameInput" class="form-input" placeholder="Enter shop name" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="shopCategoryInput">Category</label>
+                            <input id="shopCategoryInput" class="form-input" placeholder="e.g., Fashion, Electronics" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="shopDescriptionInput">Description</label>
+                        <textarea id="shopDescriptionInput" class="form-textarea" placeholder="Describe your shop"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="shopLogoInput">Logo</label>
+                            <input id="shopLogoInput" type="file" class="form-input" accept="image/*" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="shopCoverInput">Cover Image</label>
+                            <input id="shopCoverInput" type="file" class="form-input" accept="image/*" />
+                        </div>
+                    </div>
+                    <div style="display:flex; gap:0.75rem;">
+                        <button type="submit" class="action-btn primary" id="saveShopBtn"><i class="fas fa-save"></i> Save</button>
+                        <button type="button" class="action-btn secondary" id="cancelShopBtn">Cancel</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <!-- Notifications -->
+    <div id="notification" class="notification hidden"></div>
+
+    <!-- Scripts -->
+    <script src="../js/seller-dashboard.js"></script>
+</body>
+</html>
